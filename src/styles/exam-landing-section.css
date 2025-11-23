@@ -1,0 +1,9 @@
+.main-exam-landing-container {
+  width: 90%;
+}
+
+@media (max-width: 580px) {
+    .main-exam-landing-container{
+        height: 350px;
+    }
+}

@@ -1,0 +1,43 @@
+.top-landing-section {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 0;
+  /* From Uiverse.io by adamgiebl */
+
+  width: 100%;
+  height: 100%;
+  background-size: 80px 80px;
+}
+
+@media (max-width: 1320px) {
+  .image-and-icons{
+    transition: 0.5s;
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 1250px){
+  .top-landing-section{
+    flex-direction: column;
+  }
+}
+
+.top-image{
+  display: none;
+}
+.bottom-image{
+  display: block;
+}
+
+@media (max-width: 630px) {
+  .icon-container{
+    display: none;
+  }
+  .top-image{
+    display: block;
+  }
+  .bottom-image{
+   display: none;
+  }
+}

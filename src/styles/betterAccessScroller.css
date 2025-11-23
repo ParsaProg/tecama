@@ -1,0 +1,17 @@
+.border-container-gr{
+    animation: gradientRotate 10s linear infinite;
+}
+
+.tecama-logo-landing{
+    animation: gradientRotate 10s reverse infinite;
+}
+
+@keyframes gradientRotate {
+    from{
+
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

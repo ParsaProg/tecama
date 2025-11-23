@@ -1,0 +1,32 @@
+.centred{
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translate(50%, -25rem);
+    z-index: -1;
+}
+
+.shadow{
+    width: 50rem;
+    height: 42rem;
+    background-color: #01106e;
+    border-radius: 30rem;
+    filter: blur(150px)
+}
+
+@media (max-width: 1010px){
+    .shadow{
+        width: 25rem;
+        height: 45rem;
+        filter: blur(90px)
+    }
+}
+
+@media (max-width: 480px){
+    .shadow{
+        transform: translate(50%, -5rem);
+        width: 70vw;
+        height: 20rem;
+        filter: blur(90px)
+    }
+}

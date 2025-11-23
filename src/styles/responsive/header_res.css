@@ -1,0 +1,40 @@
+@media (max-width:1300px) {
+    .navbar .menu-sections{
+        display: none;
+    }
+    .menu-icon{
+        display: flex;
+    }
+
+    .tecama-logo{
+        display: flex;
+    }
+
+    .navbar .logo{
+        width: 6.8rem;
+        height:5.8rem;
+    }
+}
+
+@media (max-width: 950px) {
+    .navbar{
+        padding-left:1rem;
+        padding-right:1rem;
+    }
+    .navbar .logo{
+        width: 6.8rem;
+        height:5.8rem;
+    }
+    .navbar .account-login-section .sec1 > h1{
+        display: none;
+    }
+    .tecama-logo{
+        display: flex;
+    }
+}
+
+@media (max-width: 400px){
+    .theme-toggle-button{
+        display: none;
+    }
+}

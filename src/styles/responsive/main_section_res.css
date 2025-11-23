@@ -1,0 +1,163 @@
+@media (max-width: 1600px) {
+  .img-sec1 img {
+    height: 12rem;
+  }
+
+  .img-sec2 img {
+    height: 12rem;
+  }
+
+  .main-landingpage-section .center-sec h1 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .img-sec1 img {
+    height: 10.5rem;
+  }
+
+  .img-sec2 img {
+    height: 10.5rem;
+  }
+
+  .main-landingpage-section .center-sec {
+    h1 {
+      font-size: 1.9rem;
+    }
+    p {
+      font-size: 1.3rem;
+    }
+  }
+
+  .center-sec .section-button {
+    width: 10.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 1010px) {
+  .main-landingpage-section {
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+  }
+  .img-sec1 img {
+    display: none;
+  }
+
+  .img-sec2 img {
+    height: 10.5rem;
+  }
+
+  .main-landingpage-section .center-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: -2rem;
+    justify-content: space-between;
+    h1 {
+      text-align: start;
+      font-size: 1.8rem;
+    }
+    p {
+      text-align: start;
+      font-size: 1.8rem;
+    }
+  }
+
+  .center-sec .section-button {
+    width: 10.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .main-landingpage-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .img-sec2 img {
+    display: flex;
+    margin-top: -5rem;
+    margin-bottom:5rem;
+    z-index:2;
+    height:45vw;
+  }
+
+  .img-sec1 img {
+    display: none;
+  }
+  .main-landingpage-section .center-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -2rem;
+    justify-content: space-between;
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    p {
+      text-align: center;
+      font-size: 1.8rem;
+    }
+  }
+
+  .center-sec .section-button {
+    width: 30vw;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-landingpage-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .img-sec2 img {
+    display: flex;
+    margin-top: -5rem;
+    margin-bottom:5rem;
+    z-index:2;
+    height:55vw;
+  }
+
+  .img-sec1 img {
+    display: none;
+  }
+
+  .main-landingpage-section .center-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -2rem;
+    justify-content: space-between;
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    p {
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+
+  .center-sec .section-button {
+    padding-top: 10px;
+    padding-bottom:10px;
+    width: 40vw;
+    font-size: 0.9rem;
+    margin-top: -2    rem;
+  }
+}

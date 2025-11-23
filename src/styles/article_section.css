@@ -1,0 +1,61 @@
+.swiper-pagination {
+  display: none !important;
+}
+
+.article-container {
+  width: 22vw;
+  .title-image{
+    height: 12vw;
+  }
+}
+
+@media (max-width: 1099px) {
+  .article-container {
+    width: 38vw;
+    h1{
+      font-size: 1.6vw;
+    }
+    .category-container{
+      font-size: 1.5vw;
+      margin-top: -10px;
+    }
+    .title-image{
+      height: 23vw;
+    }
+  }
+  
+}
+@media (max-width: 880px) {
+  .article-container {
+    width: 80vw;
+
+    h1{
+      font-size: 3.5vw;
+    }
+    .category-container{
+      font-size: 2.5vw;
+      margin-top: -10px;
+    }
+    .title-image{
+      height: 40vw;
+    }
+  }
+  
+}
+
+@media (max-width: 670px) {
+  .article-container {
+    width: 80vw;
+
+    h1{
+      font-size: 4.8vw;
+    }
+    .category-container{
+      font-size: 3.6vw;
+      margin-top: -10px;
+    }
+    .title-image{
+      height: 45vw;
+    }
+  }
+}

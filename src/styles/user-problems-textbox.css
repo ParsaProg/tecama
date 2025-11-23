@@ -1,0 +1,56 @@
+/* Global container styling */
+.answer-section {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #1e1e1e; /* Dark background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  color: #e0e0e0; /* Light text for contrast */
+  font-family: "Inter", sans-serif; /* Modern, clean font (use Google Fonts or similar) */
+}
+
+/* Heading styling */
+.answer-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ffffff; /* Bright white for emphasis */
+}
+
+/* Textarea styling */
+.answer-textarea {
+  width: 93%;
+  padding: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #2a2a2a; /* Slightly lighter dark for contrast */
+  color: #e0e0e0; /* Light text */
+  border: 1px solid #3a3a3a; /* Subtle border */
+  border-radius: 8px;
+  resize: vertical; /* Vertical resize only */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Textarea focus and hover states */
+.answer-textarea:focus,
+.answer-textarea:hover {
+  outline: none;
+  border-color: #6200ea; /* Vibrant purple accent */
+  box-shadow: 0 0 8px rgba(98, 0, 234, 0.5); /* Glowing effect */
+}
+
+/* Placeholder styling */
+.answer-textarea::placeholder {
+  color: #888888; /* Muted gray for placeholder */
+  opacity: 0.8;
+}
+
+
+/* Paragraph (answer preview) styling */
+.answer-section p {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: #b0b0b0; /* Softer gray for secondary text */
+  word-wrap: break-word; /* Ensure long text wraps */
+}

@@ -1,0 +1,13 @@
+.custom-icon-size {
+  font-size: 10px; /* Adjust the size as needed */
+}
+
+.custom-progress-bar {
+  background-color: #e55151cb; /* Change the progress bar color */
+  height: 5px; /* Adjust the height if needed */
+}
+
+.custom-progress-bar-success {
+  background-color: #60e87bcb; /* Change the progress bar color */
+  height: 5px; /* Adjust the height if needed */
+}

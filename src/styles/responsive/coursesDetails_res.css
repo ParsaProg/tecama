@@ -1,0 +1,47 @@
+
+.course-title-text{
+    margin-top: 10px;
+}
+
+@media (max-width: 1220px){
+    .head-data{
+        flex-direction: column;
+    }
+    
+    .banner-image{
+        width: 95%;
+        height: 50vw;
+        margin-bottom: 20px;
+        margin: auto;
+    }
+    .courses-details-page{
+        width: 95%;
+    }
+
+    .course-title-text{
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 1010px){
+    .bottom-datas{
+        display: block;
+        width: 100%;
+    }
+
+    .sec-course-details-1, .sec-course-details-2{
+        width: 100%;
+        margin: 0px;
+    }
+
+    .top-2-containers{
+        display: flex;
+        justify-content: space-between;
+        div{
+            width: 100%;
+        }
+        .teacher-info-text{
+            width: 95%;
+        }
+    }
+}

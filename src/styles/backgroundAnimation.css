@@ -1,0 +1,48 @@
+body {
+  min-height: 100vh;
+}
+
+.container-bubles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bubles {
+    gap: 5rem;
+  position: relative;
+  display: flex;
+  
+}
+
+.bubles span {
+    flex-shrink: 0;
+    transform: translateY(-10px);
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background-color: blue;
+  margin: 0 4px;
+  border-radius: 50%;
+  animation: blublesAnimate 60s linear infinite;
+}
+
+.bubles span:nth-child(even) {
+  background-color: #18b2fa;
+}
+
+.bubles span:nth-child(odd) {
+    background-color: #7B20FB;
+}
+
+@keyframes blublesAnimate {
+  0% {
+    transform: translateY(100vh);
+  }
+
+  100% {
+    transform: translateY(-10vh);
+  }
+}

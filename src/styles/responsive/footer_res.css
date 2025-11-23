@@ -1,0 +1,16 @@
+@media (max-width: 1410px) {
+  .landing-page-footer-info {
+    flex-direction: column;
+  }
+  .qrcode {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -10rem;
+  }
+  .inside-data {
+    padding-top: 4rem;
+  }
+  .social-text {
+    width: auto;
+  }
+}

@@ -1,0 +1,104 @@
+.circle-first {
+  background-image: url("../assets/images/topSectionBackground.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+@media (min-width: 500px){
+  .circle-first{
+    padding-top: 1rem;
+  }
+}
+
+.circle-container{
+  margin-top: 3rem;
+}
+
+.circle {
+  width: 100%;
+  height: 10rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.circle-item {
+  transition: 0.6s;
+  width: 6rem;
+  height: 6rem;
+  background-color: rgba(0, 0, 0, 0.89);
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100%;
+  float: left;
+
+  margin: auto;
+}
+
+.arrow-down{
+  transition: 0.2s;
+  animation: arrowDown alternate 1s infinite;
+}
+
+@media (max-width: 1600px){
+  .circle-item{
+    margin: 3rem 20px;
+    animation: moveCircles alternate 5s infinite;
+  }
+}
+
+@media (max-width: 480px){
+  .circle-item{
+    width:4rem;
+    height:4rem;
+    margin:3rem 10px;
+    svg{
+      padding:3px;
+    }
+    animation: moveCircles2 alternate 10s infinite;
+  }
+
+  .circle-container{
+    margin-top: -5rem;
+  }
+
+}
+
+@keyframes moveCircles {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+@keyframes moveCircles2 {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(800%);
+  }
+}
+
+
+@keyframes arrowDown {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(15px);
+  }
+}

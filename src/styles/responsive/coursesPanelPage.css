@@ -1,0 +1,14 @@
+@media (max-width: 1150px){
+    .course-panel-page{
+        flex-direction: column;
+        align-items: center;
+    }
+    .right-side-controller{
+        width: 90%;
+    }
+    .main-side-video-and-desc{
+        width: 90%;
+        height: auto;
+        margin: auto;
+    }
+}

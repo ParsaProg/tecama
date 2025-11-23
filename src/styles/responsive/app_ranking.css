@@ -1,0 +1,139 @@
+@media (max-width: 1550px){
+    .ranking-header{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1320px) {
+    .ranking-content{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .app-company{
+        font-size: 1.4vw;
+    }
+    .app-company-title{
+        font-size: 1.4vw;
+    }
+    .app-name{
+        font-size: 2vw;
+    }
+    .rank-number{
+        font-size: 1.8vw;
+    }
+    .rank-number-txt{
+        font-size: 1.5vw;
+    }
+    .install-number{
+        font-size: 1.5vw;
+    }
+    .install-number-txt{
+        font-size: 1.5vw;
+    }
+    .user-vote{
+        font-size: 1.5vw;
+    }
+    .user-vote-txt{
+        font-size: 1.5vw;
+    }
+}
+
+
+@media (max-width: 1010px){
+    .app-image{
+        width: 9vw;
+        height: 9vw;
+    }
+    .ranking-content{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .app-company{
+        font-size: 1.9vw;
+    }
+    .app-company-title{
+        font-size: 1.9vw;
+    }
+    .app-name{
+        font-size:2.8vw;
+    }
+    .rank-number{
+        font-size: 2vw;
+    }
+    .rank-number-txt{
+        font-size: 2.3vw;
+    }
+    .install-number{
+        font-size: 2.3vw;
+    }
+    .install-number-txt{
+        font-size: 2.3vw;
+    }
+    .user-vote{
+        font-size: 2.3vw;
+    }
+    .user-vote-txt{
+        font-size:2.3vw;
+    }
+}
+
+@media (max-width: 630px){
+    .app-image{
+        width: 15vw;
+        height: 15vw;
+    }
+    .ranking-content{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .app-company{
+        font-size: 2.3vw;
+    }
+    .app-company-title{
+        font-size: 2.3vw;
+    }
+    .app-name{
+        font-size: 3.5vw;
+    }
+    .rank-number{
+        font-size: 3vw;
+    }
+    .rank-number-txt{
+        font-size: 3.1vw;
+    }
+    .install-number{
+        font-size: 3.1vw;
+    }
+    .install-number-txt{
+        font-size: 3.1vw;
+    }
+    .user-vote{
+        font-size: 3.1vw;
+    }
+    .user-vote-txt{
+        font-size: 3.1vw;
+    }
+}
+
+@media (max-width: 820px){
+    .header-section1{
+        flex-direction: column;
+        border: none;
+    }
+    .sort-button{
+        width: auto;
+        padding: 20px;
+        margin: 0;
+        text-align: center;
+        font-size: 4vw;
+    }
+    .header-section2{
+        border: 2px solid white;
+        width: auto;
+        cursor: pointer;
+    }
+    .filter-modes{
+        display: none;
+    }
+}
+
+.ranking-content{
+    transition: 0.8s;
+}

@@ -1,0 +1,46 @@
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+}
+
+.exam-mode-containers:hover{
+  box-shadow: 1px 1px 30px 10px black;
+  h1{
+    color: #2a8aeb;
+  }
+}
+
+.exam-mode-containers{
+  box-shadow: 1px 1px 20px 2px black;
+}
+
+.ended-exams-containers:hover{
+  h1{
+    color: #2a8aeb;
+  }
+}
+
+.ended-courses-list-container:hover{
+  h1{
+    color: #2a8aeb;
+    
+  }
+}
+
+.ended-courses-list-container{
+  h1{
+    transition: 0.2s;
+  }
+}

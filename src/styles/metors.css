@@ -1,0 +1,38 @@
+@keyframes meteor {
+    0% {
+      transform: translateY(0) translateX(0) rotate(215deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(500px) translateX(-500px) rotate(215deg);
+      opacity: 0;
+    }
+  }
+  
+  .animate-meteor-effect {
+    animation: meteor linear infinite;
+  }
+  
+  .animation-delay-1 {
+    animation-delay: 0.2s;
+  }
+  
+  .animation-delay-2 {
+    animation-delay: 0.4s;
+  }
+  
+  .animation-delay-3 {
+    animation-delay: 0.6s;
+  }
+  
+  .animation-duration-1 {
+    animation-duration: 2s;
+  }
+  
+  .animation-duration-2 {
+    animation-duration: 5s;
+  }
+  
+  .animation-duration-3 {
+    animation-duration: 8s;
+  }

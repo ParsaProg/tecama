@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap');
+/* 
+@font-face{
+    font-family: "dana_regular";
+    src:url("../assets/fonts/dana/DANA-REGULAR.TTF");
+    font-display: swap;
+}
+
+@font-face{
+    font-family: "iransans";
+    src:url("../assets/fonts/iransans/IranSans.ttf");
+    font-display: swap;
+}
+
+@font-face{
+    font-family: "dana_bold";
+    src:url("../assets/fonts/dana/DANA-BOLD.TTF");
+    font-display: swap;
+} */
+
+.dark-theme{
+  background-color: #080B21;
+}
+
+.light-theme{
+  background-color: #EEF3F9;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Vazirmatn";
+  user-select: none;
+  font-weight: 500;
+  height: 100%;
+}
+
