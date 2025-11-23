@@ -76,7 +76,7 @@
     "yocto-queue": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
