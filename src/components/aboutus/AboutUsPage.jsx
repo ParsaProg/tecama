@@ -209,21 +209,6 @@ export default function AboutUs({ isDarkTheme }) {
             transition={{ delay: 0.6 }}
             className="flex items-center justify-center gap-4 mb-6"
           >
-            <motion.div
-              animate={{ 
-                rotate: [0, 10, -10, 0],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity,
-                repeatDelay: 3
-              }}
-            >
-              <Rocket className={`w-8 h-8 ${
-                isDarkTheme ? "text-cyan-400" : "text-cyan-500"
-              }`} />
-            </motion.div>
             <p className={`text-2xl md:text-3xl font-light ${
               isDarkTheme ? "text-gray-300" : "text-gray-700"
             }`}>
