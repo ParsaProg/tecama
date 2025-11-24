@@ -1,6 +1,7 @@
 import { MdOutlineDateRange } from "react-icons/md";
 import "../styles/article_section.css";
 import { useNavigate } from "react-router-dom";
+import convertToFarsiNumbers from "../functions/convertNumbersToFarsi";
 
 export default function ArticleContainer(props) {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function ArticleContainer(props) {
           state: {titleImage: articleImage, titleText: titleText}
         });
       }}
-      className={`article-container m-[auto] scale-[0.94] cursor-pointer rounded-lg border-[1.5px]  ${theme? "bg-slate-900 border-[#2e3c51]": "bg-slate-100 border-slate-300"} transition duration-[0.5s] ${
+      className={`article-container my-4 m-[auto] cursor-pointer rounded-lg border-[1.5px]  ${theme? "bg-slate-900 border-[#2e3c51]": "bg-slate-100 border-slate-300"} transition duration-[0.5s] ${
         weblog && "w-full"
       }`}
     >
@@ -57,21 +58,23 @@ export default function ArticleContainer(props) {
           );
         })}
       </div>
-      <div className="flex items-center p-[1.3rem]">
-        <div
-          className="sm:w-[2.5rem] sm:h-[2.5rem] w-[2rem] h-[2rem] rounded-full border-[1px] border-[#000000]"
+      <div className="flex flex-col gap-y-3 items-start p-[1.3rem]">
+        <div className="flex items-center gap-x-2">
+          <div
+          className="w-[2rem] h-[2rem] rounded-full border-[1px] border-[#000000]"
           style={{
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundImage: `url(${publisherImage})`,
           }}
         />
-        <p className={`${theme? "text-[#25A6E9]": "text-blue-600"} font-[500] mx-[7px] text-sm hover:text-white cursor-pointer transition-all`}>
+        <p className={`${theme? "text-[#25A6E9]": "text-blue-600"} font-[500] text-sm hover:text-white cursor-pointer transition-all`}>
           {publisherName}
         </p>
-        <div className={`flex items-start mx-[7px] ${theme? "text-[#646f7e]": "text-gray-800"}`}>
-          <MdOutlineDateRange size={18} className="mx-[7px]" />
-          <p className={` font-[500] text-sm `}>{publishTime}</p>
+        </div>
+        <div className={`flex gap-x-1 items-start ${theme? "text-[#acb3bd]": "text-gray-800"}`}>
+          <MdOutlineDateRange size={18} className="" />
+          <p className={` font-[500] text-sm `}>{convertToFarsiNumbers(publishTime)}</p>
         </div>
         {/* <div className="flex items-start mx-[7px]">
           <FaRegComments color="#646f7e" size={18} className="mx-[7px]" />
