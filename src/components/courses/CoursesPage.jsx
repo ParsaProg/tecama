@@ -130,7 +130,7 @@ export default function CoursesPage({ isDarkTheme, coursesData }) {
         transition: { duration: 0.3, mease: "easeInOut" },
       }}
       transition={{ delay: 0.5, duration: 0.5 }}
-      className="courese-page w-[85%] mx-auto mt-5"
+      className="courese-page w-[90%] mx-auto mt-5"
     >
       <div className="filter-sort-search flex items-center gap-5 w-full">
         <div className="flex items-center gap-5 max-[970px]:mb-5">

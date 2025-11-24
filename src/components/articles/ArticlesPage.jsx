@@ -144,7 +144,7 @@ export default function ArticlePage({ isDarkTheme, articlesData }) {
         transition: { duration: 0.3, ease: "easeInOut" },
       }}
       transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
-      className="courese-page md:mx-[5rem] mt-5"
+      className="courese-page w-[90%] mx-auto mt-5"
     >
       <div className="filter-sort-search flex items-center gap-5">
         <div className="flex items-center gap-5 max-[970px]:mb-5">
