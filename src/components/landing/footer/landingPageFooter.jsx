@@ -8,7 +8,7 @@ import "../../../styles/responsive/footer_res.css";
 
 export default function LandingPageFooter({ isDarkTheme }) {
   return (
-    <div className={`landing-page-footer-info flex items-center relative justify-between mx-[10px] transition-all duration-200 lg:mx-[10rem] mt-[150px] 2xl:mt-[20px]`}>
+    <div className={`w-full landing-page-footer-info flex items-center relative justify-between  transition-all duration-200 mt-[150px] 2xl:mt-[20px]`}>
       <div className={`rounded-xl ${isDarkTheme? "bg-gradient-to-l text-white from-[#20253E] to-slate-800": "bg-white border-[1px] border-slate-300 text-black"} p-5 w-[100%] inside-data`}>
         <h1 className="text-xl font-[400]">
           تکاما را در شبکه‌های اجتماعی دنبال کنید

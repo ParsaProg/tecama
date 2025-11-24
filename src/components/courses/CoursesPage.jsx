@@ -130,9 +130,9 @@ export default function CoursesPage({ isDarkTheme, coursesData }) {
         transition: { duration: 0.3, mease: "easeInOut" },
       }}
       transition={{ delay: 0.5, duration: 0.5 }}
-      className="courese-page md:mx-[5rem] mt-5"
+      className="courese-page w-[85%] mx-auto mt-5"
     >
-      <div className="filter-sort-search flex items-center gap-5">
+      <div className="filter-sort-search flex items-center gap-5 w-full">
         <div className="flex items-center gap-5 max-[970px]:mb-5">
           {/* فیلتر مرتب سازی */}
           <div className="relative sort-container">
@@ -360,7 +360,7 @@ export default function CoursesPage({ isDarkTheme, coursesData }) {
         )}
       </div>
 
-      <div className="grid grid-cols-4 courses-containers mt-5 w-full">
+      <div className="grid grid-cols-4 courses-containers gap-x-7 mt-5 w-full">
         {filteredCourses.length !== 0 ? (
           filteredCourses.map((courseData, courseIndex) => {
             return (

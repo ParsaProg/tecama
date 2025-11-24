@@ -1,7 +1,6 @@
 import "../../../styles/topLandingPage.css";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Meteors } from "../../ui/meteors";
-import React, { useEffect, useState } from "react";
 import { IoLogoGithub } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaReact } from "react-icons/fa"; 
@@ -9,7 +8,6 @@ import { FaCode } from "react-icons/fa6";
 import { FiCpu } from "react-icons/fi";
 import { PiNewspaperClipping } from "react-icons/pi";
 import TecImage from "../../../assets/images/tec-image.png";
-import LightTecImage from "../../../assets/images/tec-image-white.jpg";
 import {ReactComponent as FlutterLogo} from "../../../assets/icons/flutter-logo.svg";
 import {ReactComponent as NodeJs} from "../../../assets/icons/node-js-logo.svg";
 import {ReactComponent as VueJs} from "../../../assets/icons/vue-js-logo.svg";
@@ -75,7 +73,7 @@ export default function TopLandingSection({ isDarkTheme }) {
             height={600}
             src={TecImage}
           />
-            <div className="w-[95%] m-auto sm:w-auto mt-[20px] my-[30px] gap-x-5 gap-y-5 sm:flex sm:flex-row grid grid-cols-2 items-center justify-center">
+            <div className="w-full m-auto sm:w-auto mt-[20px] my-[30px] gap-x-5 gap-y-5 sm:flex sm:flex-row grid grid-cols-2 items-center justify-center">
               <div
                 className={`${
                   isDarkTheme

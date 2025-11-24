@@ -1,6 +1,5 @@
 import { FaUserCheck } from "react-icons/fa6";
 import { MdRemoveRedEye, MdDateRange } from "react-icons/md";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { CodeBlock } from "../../ui/code-block";
 import { MdOpenInNew } from "react-icons/md";
 import { useState } from "react";
@@ -15,13 +14,13 @@ export default function ProblemContainer(props) {
     <div
       className={`${
         props.isDarkTheme ? "text-white" : "text-black"
-      } p-4 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600`}
+      } w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600`}
     >
       <div
         style={{
           boxShadow: "0px 0px 20px 2px black",
         }}
-        className={`z-[30] ${
+        className={`w-full z-[30] ${
           props.isDarkTheme ? "bg-slate-900" : "bg-slate-100"
         } border-[1px] rounded-lg ${
           window.innerWidth > 1300 ? "w-[43vw]" : "w-[80vw]"

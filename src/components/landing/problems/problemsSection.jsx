@@ -22,11 +22,11 @@ export const size = {
   height: 630,
 };`;
   return (
-    <div className="w-[100%] z-[20]">
+    <div className="w-full z-[20]">
       <Link to={"/problems"}>
         <TitlesLandingPage titleText="سؤال و جواب‌‌ها" isDarkTheme={isDarkTheme}/>
       </Link>
-      <div className="w-full z-[30] flex justify-center gap-[1.5rem] m-[auto] mt-5 lg:px-[4rem] px-3">
+      <div className="w-full z-[30] flex justify-center gap-[1.5rem] m-auto mt-5">
         <ProblemContainer codetext={codetext} isDarkTheme={isDarkTheme}/>
         {displayState > 1300 && <ProblemContainer codetext={codetext} isDarkTheme={isDarkTheme}/>}
       </div>

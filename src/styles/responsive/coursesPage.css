@@ -1,3 +1,9 @@
+@media (min-width: 1460px) {
+    .courses-containers{
+        grid-template-columns: repeat(4, minmax(0, 2fr));
+    }
+}
+
 @media (max-width: 1460px) {
     .courses-containers{
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -18,7 +24,7 @@
 
 @media (max-width: 970px) {
     .filter-sort-search{
-        width: 90%;
+        width: 100%;
         display: block;
         margin: auto;
     }

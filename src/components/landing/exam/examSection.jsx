@@ -5,7 +5,7 @@ import "../../../styles/exam-landing-section.css";
 
 const ExamSection = ({ isDarkTheme }) => {
   return (
-    <div className="relative main-exam-landing-container w-[1300px] exam-container-out-gradient h-[250px] m-auto mt-[100px] bg-gradient-to-l from-[#6f3dab] to-[#2f4fc3] rounded-xl">
+    <div className="relative main-exam-landing-container w-full exam-container-out-gradient h-[250px] m-auto mt-[100px] bg-gradient-to-l from-[#6f3dab] to-[#2f4fc3] rounded-xl">
       <div
         style={{
           borderTopRightRadius: "50px",

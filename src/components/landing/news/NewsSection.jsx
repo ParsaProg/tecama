@@ -5,11 +5,11 @@ export default function NewsSection({isDarkTheme, newsData}) {
   const navigate = useNavigate();
 
   return (
-    <div className="z-[20] mb-[2rem] mt-[50px]">
+    <div className="z-[20] w-full mb-[2rem] mt-[50px]">
       <Link to={"/weblog?index=news"}>
         <TitlesLandingPage titleText="اخبار روز تکنولوژی" isDarkTheme={isDarkTheme}/>
       </Link>
-      <div className="grid 2xl:grid-cols-2 gap-5 mt-4 mx-3 lg:mx-[5rem]">
+      <div className="grid 2xl:grid-cols-2 gap-5 mt-4">
         {newsData.map((news, newsIndex) => {
           return (
             <div

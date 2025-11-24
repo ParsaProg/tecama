@@ -98,7 +98,7 @@ export default function AppRoutes({
               transition: { duration: 0.3, mease: "easeInOut" },
             }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="z-20"
+            className="z-20 mx-auto w-[90%]"
           >
             <TopLandingSection isDarkTheme={isDarkTheme} />
             <ExamSection isDarkTheme={isDarkTheme} />
