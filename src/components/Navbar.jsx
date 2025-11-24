@@ -393,7 +393,7 @@ export default function Navbar(props) {
                   gap: "7px",
                 }}
               >
-                <h1>دربارۀ ما</h1>
+                <h1>دربارۀ برنامه‌نویس</h1>
               </div>
               <span className="underline"></span>
             </div>
