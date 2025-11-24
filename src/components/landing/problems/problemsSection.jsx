@@ -16,7 +16,7 @@ export const runtime = "edge";
 export const contentType = "image/png";
 
 // image configs
-export const alt = "Hello CodeNight";
+export const alt = "Hello";
 export const size = {
   width: 1200,
   height: 630,
