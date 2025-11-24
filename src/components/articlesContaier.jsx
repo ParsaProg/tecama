@@ -22,7 +22,7 @@ export default function ArticleContainer(props) {
           state: {titleImage: articleImage, titleText: titleText}
         });
       }}
-      className={`article-container my-4 m-[auto] cursor-pointer rounded-lg border-[1.5px]  ${theme? "bg-slate-900 border-[#2e3c51]": "bg-slate-100 border-slate-300"} transition duration-[0.5s] ${
+      className={`article-container mb-4 m-[auto] cursor-pointer rounded-lg border-[1.5px]  ${theme? "bg-slate-900 border-[#2e3c51]": "bg-slate-100 border-slate-300"} transition duration-[0.5s] ${
         weblog && "w-full"
       }`}
     >
