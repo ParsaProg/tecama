@@ -29,7 +29,7 @@ export default function CoursesContainer(props) {
               });
         }
       }}
-      className={`article-container m-[auto] scale-[0.94] cursor-pointer rounded-lg border-[1.5px]  ${theme? "bg-slate-900 border-[#2e3c51]": "bg-slate-100 border-slate-300"} transition duration-[0.5s] ${
+      className={`my-4 w-full article-container cursor-pointer rounded-lg border-[1.5px]  ${theme? "bg-slate-900 border-[#2e3c51]": "bg-slate-100 border-slate-300"} transition duration-[0.5s] ${
         weblog && "w-full"
       }`}
     >
