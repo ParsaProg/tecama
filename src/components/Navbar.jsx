@@ -4,17 +4,14 @@ import { ReactComponent as TecamaLogo } from "../assets/logo/tecama-logo.svg";
 import { MdAccountCircle } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ui/theme-toggle";
 import { disableBodyScroll } from "body-scroll-lock";
 import axios from "axios";
-import { CiSearch } from "react-icons/ci";
-import { IoSettingsOutline } from "react-icons/io5";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { LuSettings } from "react-icons/lu";
-import { MonitorCog, Moon, Palette, Sun } from "lucide-react";
 import { GoSignOut } from "react-icons/go";
 import Swal from "sweetalert2";
 
@@ -380,6 +377,79 @@ export default function Navbar(props) {
               >
                 <h1>پادکست</h1>
               </div>
+              <span className="underline"></span>
+            </div>
+          </Link>
+          <Link to="/code-battle">
+            <div className="podcast-section px-[8px] transition-all duration-100">
+              <button
+                className="
+    flex items-center gap-2 px-3 py-2 rounded-xl 
+    bg-indigo-600 hover:bg-indigo-500 transition-all
+    text-white font-semibold  text-lg shadow-lg hover:shadow-indigo-400/40
+    relative
+  "
+              >
+                {/* Badge NEW */}
+                <span
+                  className="
+    absolute -top-2 -right-2 text-xs bg-cyan-400 text-black 
+    px-2 py-[2px] rounded-md shadow-cyan-300 font-bold shadow-xl animate-bounce
+  "
+                >
+                  جدید
+                </span>
+                {/* Animated Duel SVG */}
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-cyan-300"
+                >
+                  {/* Left bracket */}
+                  <path d="M7 4 L4 7 L4 17 L7 20">
+                    <animate
+                      attributeName="stroke-opacity"
+                      values="0.3;1;0.3"
+                      dur="1.8s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+
+                  {/* Lightning bolt */}
+                  <path d="M12 6 L14 10 L11 10 L13 14 L10 14" stroke="yellow">
+                    <animate
+                      attributeName="stroke"
+                      values="#22d3ee;#facc15;#22d3ee"
+                      dur="1.6s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="stroke-width"
+                      values="2.2;3;2.2"
+                      dur="0.8s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+
+                  {/* Right bracket */}
+                  <path d="M17 4 L20 7 L20 17 L17 20">
+                    <animate
+                      attributeName="stroke-opacity"
+                      values="0.3;1;0.3"
+                      dur="1.8s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </svg>
+                <div className="font-mono">Code Battle</div>
+              </button>
+
               <span className="underline"></span>
             </div>
           </Link>

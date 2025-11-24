@@ -15,6 +15,7 @@ import { MdOutlinePodcasts } from "react-icons/md";
 import { BsInfoSquare } from "react-icons/bs";
 import { MdOutlineLightMode } from "react-icons/md";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function Drawer({
@@ -53,7 +54,7 @@ export default function Drawer({
             }}
             transition={{ duration: 0.3 }}
             dir="ltr"
-            className={`drawer flex flex-col gap-y-[3px] rotate-[90deg] fixed w-[240px] rounded-l-xl border-[1px] border-slate-600 h-[100vh] ${
+            className={`drawer flex flex-col gap-y-[3px] rotate-[90deg] fixed w-[240px] rounded-l-xl border-[1px] border-slate-600 h-[100vh] overflow-y-auto ${
               isDarkTheme ? "text-neutral-200" : "text-black"
             } ${isDarkTheme ? "bg-[#0F172A]" : "bg-[#EEF3F9]"} z-[1000]`}
           >
@@ -85,7 +86,6 @@ export default function Drawer({
               </div>
               <TecamaLogo width={55} height={55} />
             </div>
-
             <div
               onClick={() => {
                 navigate("/courses");
@@ -180,6 +180,83 @@ export default function Drawer({
               <h1>دربارۀ برنامه‌نویس </h1>
               <BsInfoSquare size={20} />
             </div>
+            <hr className="border-slate-700 border-[1px] w-[100%] h-[1.3px] mt-3"></hr>{" "}
+            <Link
+              to="/code-battle"
+              className="flex items-center justify-end mt-5 mb-2 px-5 text-lg gap-2 cursor-pointer my-5"
+            >
+              <button
+              dir="rtl"
+                className="
+                flex items-center gap-2 px-3 py-2 rounded-xl 
+                bg-indigo-600 hover:bg-indigo-500 transition-all
+                text-white font-semibold  text-lg shadow-lg hover:shadow-indigo-400/40
+                relative
+              "
+              >
+                {/* Badge NEW */}
+                <span
+                  className="
+                absolute -top-2 -right-2 text-xs bg-cyan-400 text-black 
+                px-2 py-[2px] rounded-md shadow-cyan-300 font-bold shadow-xl animate-bounce
+              "
+                >
+                  جدید
+                </span>
+                {/* Animated Duel SVG */}
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-cyan-300"
+                >
+                  {/* Left bracket */}
+                  <path d="M7 4 L4 7 L4 17 L7 20">
+                    <animate
+                      attributeName="stroke-opacity"
+                      values="0.3;1;0.3"
+                      dur="1.8s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+
+                  {/* Lightning bolt */}
+                  <path d="M12 6 L14 10 L11 10 L13 14 L10 14" stroke="yellow">
+                    <animate
+                      attributeName="stroke"
+                      values="#22d3ee;#facc15;#22d3ee"
+                      dur="1.6s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="stroke-width"
+                      values="2.2;3;2.2"
+                      dur="0.8s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+
+                  {/* Right bracket */}
+                  <path d="M17 4 L20 7 L20 17 L17 20">
+                    <animate
+                      attributeName="stroke-opacity"
+                      values="0.3;1;0.3"
+                      dur="1.8s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </svg>
+                <div className="font-mono">Code Battle</div>
+              </button>
+
+              <span className="underline"></span>
+            </Link>
+            <hr className="border-slate-700 border-[1px] w-[100%] h-[1.3px] mt-3"></hr>
             <div className="shrink-0 flex justify-end mt-5 px-5 text-lg gap-2">
               <h1
                 className={`${
