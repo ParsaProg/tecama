@@ -375,7 +375,7 @@ export default function ArticlePage({ isDarkTheme, articlesData }) {
         )}
       </div>
 
-      <div className="grid grid-cols-4 courses-containers mt-[20px] ">
+      <div className="grid grid-cols-4 gap-x-5 courses-containers mt-[20px] ">
         {filteredArticles.length !== 0 ? (
           filteredArticles.map((articleData) => {
             return (
