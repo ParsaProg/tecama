@@ -108,19 +108,17 @@ export default function SupportField({ isDarkTheme }) {
   };
   return (
     <div
-      className={`mx-[10px] ${
-        windowWidth < 1020 ? "max-w-md md:w-full" : " w-[900px]"
-      } mx-auto md:w-[900px] w-[95%] rounded-xl lg:p-0 p-4 lg:pl-8 md:rounded-2xl ${
+      className={`p-5 lg:p-0 w-full mx-auto rounded-xl md:rounded-2xl ${
         isDarkTheme
-          ? "bg-slate-900 text-white border-slate-500"
+          ? "bg-slate-900 text-white border-slate-700"
           : "bg-white text-black border-slate-300"
-      }  sm:scale-[1.1] border-[0.5px] ${
+      } border-[0.5px] ${
         windowWidth > 1020 && "flex items-center gap-x-[50px]"
       }`}
     >
       {windowWidth > 1020 && (
         <div
-          className="w-[600px] h-[570px] rounded-r-2xl"
+          className="w-[50%] h-[570px] rounded-r-2xl"
           style={{
             backgroundImage:
               "url(https://github.com/ParsaProg/tecama_images/blob/main/photo_2025-02-17_21-51-13.jpg?raw=true)",
@@ -130,7 +128,7 @@ export default function SupportField({ isDarkTheme }) {
           }}
         ></div>
       )}
-      <div className={`${windowWidth > 1020 && "pt-[20px] pb-[20px] w-[60%]"}`}>
+      <div className={`${windowWidth > 1020 && "lg:ml-5 pt-[20px] pb-[20px] w-[70%]"}`}>
         <h1 className="text-xl mb-[5px]">
           ارتباط با پشتیبان ( برنامه‌نویس سامانه )
         </h1>
