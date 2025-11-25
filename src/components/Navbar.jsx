@@ -447,7 +447,7 @@ export default function Navbar(props) {
                     />
                   </path>
                 </svg>
-                <div className="font-mono">Code Battle</div>
+                <div>Code Battle</div>
               </button>
 
               <span className="underline"></span>

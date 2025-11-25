@@ -182,16 +182,17 @@ export default function Drawer({
             </div>
             <hr className="border-slate-700 border-[1px] w-[100%] h-[1.3px] mt-3"></hr>{" "}
             <Link
+            dir="rtl"
               to="/code-battle"
-              className="flex items-center justify-end mt-5 mb-2 px-5 text-lg gap-2 cursor-pointer my-5"
+              className="flex items-center justify-start w-[95%] text-lg gap-2 cursor-pointer mt-5 mb-2"
             >
               <button
-              dir="rtl"
+                dir="rtl"
                 className="
                 flex items-center gap-2 px-3 py-2 rounded-xl 
                 bg-indigo-600 hover:bg-indigo-500 transition-all
                 text-white font-semibold  text-lg shadow-lg hover:shadow-indigo-400/40
-                relative
+                relative w-full
               "
               >
                 {/* Badge NEW */}
@@ -251,12 +252,10 @@ export default function Drawer({
                     />
                   </path>
                 </svg>
-                <div className="font-mono">Code Battle</div>
-              </button>
-
-              <span className="underline"></span>
+                Code Battle
+              </button> 
+             <span className="underline"></span>
             </Link>
-            <hr className="border-slate-700 border-[1px] w-[100%] h-[1.3px] mt-3"></hr>
             <div className="shrink-0 flex justify-end mt-5 px-5 text-lg gap-2">
               <h1
                 className={`${
