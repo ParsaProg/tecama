@@ -401,8 +401,8 @@ export default function Navbar(props) {
                 </span>
                 {/* Animated Duel SVG */}
                 <svg
-                  width="40"
-                  height="40"
+                  width="30"
+                  height="30"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -447,7 +447,7 @@ export default function Navbar(props) {
                     />
                   </path>
                 </svg>
-                <div className="font-sans text-lg">Code Battle</div>
+                <div className="font-sans text-md">Code Battle</div>
               </button>
 
               <span className="underline"></span>
