@@ -17,6 +17,7 @@ import AiPage from "../components/ai/AiPage.jsx";
 import { GetDataFromApi } from "../components/api.js";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { dotsList } from "../data/dots.js";
+import CodeBattleLanding from "../components/code-battle/CodeBattleLanding.jsx";
 
 const AdminPanel = lazy(() => import("../components/admin/AdminPanel.jsx"));
 const AdminRoute = lazy(() => import("../components/admin/Admin.jsx"));
@@ -938,6 +939,25 @@ export default function AppRoutes({
               className="h-[43rem] flex items-center justify-center"
             >
               <SignupForm isDarkTheme={isDarkTheme} />
+            </motion.div>
+          </Suspense>
+        }
+      /><Route
+        path="/code-battle"
+        element={
+          <Suspense>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{
+                opacity: 0,
+                y: 50,
+                transition: { duration: 0.3, mease: "easeInOut" },
+              }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="w-[90%] mx-auto"
+            >
+              <CodeBattleLanding isDarkTheme={isDarkTheme} />
             </motion.div>
           </Suspense>
         }
