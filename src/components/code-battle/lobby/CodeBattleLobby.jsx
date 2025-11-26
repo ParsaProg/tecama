@@ -72,7 +72,7 @@ const CodeBattleLobby = ({ isDarkTheme }) => {
               >
                 <motion.div
                   whileTap={{ scale: 0.95 }}
-                  className="w-full justify-center bg-[#22D2EE] p-2 rounded-lg text-black flex items-center gap-x-2"
+                  className="w-full bg-[#22D2EE] p-2 rounded-lg text-black flex items-center gap-x-2"
                 >
                   <Check size={15} />
                   همۀ اتاق‌ها
@@ -115,7 +115,7 @@ const CodeBattleLobby = ({ isDarkTheme }) => {
               >
                 <motion.div
                   whileTap={{ scale: 0.95 }}
-                  className="w-full justify-center bg-[#22D2EE] p-2 rounded-lg text-black flex items-center gap-x-2"
+                  className="w-full bg-[#22D2EE] p-2 rounded-lg text-black flex items-center gap-x-2"
                 >
                   <Check size={15} />
                   جدید‌ترین
