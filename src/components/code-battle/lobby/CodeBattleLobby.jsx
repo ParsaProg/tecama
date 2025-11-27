@@ -175,7 +175,7 @@ const CodeBattleLobby = ({ isDarkTheme }) => {
                         
                         {convertToFarsiNumbers(room.state === "waiting"? "1/2": "2/2")}
                     </div>
-                    <button disabled={room.state === "run"} className="disabled:opacity-[0.8] disabled:cursor-not-allowed bg-[#4F4BE6] rounded-lg text-white p-3 text-sm">ورود به اتاق</button>
+                    <button disabled={room.state === "run"} className="disabled:opacity-[0.5] disabled:cursor-not-allowed bg-[#4F4BE6] rounded-lg text-white p-3 text-sm">ورود به اتاق</button>
                 </div>
             </div>
         })}
