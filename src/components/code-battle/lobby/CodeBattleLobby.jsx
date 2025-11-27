@@ -2,34 +2,50 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, Filter, Plus, Users, Zap } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import convertToFarsiNumbers from "../../../functions/convertNumbersToFarsi";
+import showErrorAlert from "../../../functions/showAlert";
+import { useNavigate } from "react-router-dom";
 
-const CodeBattleLobby = ({ isDarkTheme }) => {
-    const roomList = [
-        {
-            uniqId: "afhjewopnvljkdfhbgkjhfgpw",
-            title: "چالش الگوریتم‌ها",
-            state: "waiting",
-        },
-         {
-            uniqId: "afhjewopnvljkdfhbgkjhfgps",
-            title: "مسابقه ساختمان داده",
-            state: "run",
-        },
-         {
-            uniqId: "afhjewopnvljkdfhbgkjhfgpp",
-            title: "رقابت سریع",
-            state: "waiting",
-        },
-         {
-            uniqId: "afhjewopnvljkdfhbgkjhfgpa",
-            title: "مبارزه پایتون",
-            state: "waiting",
-        },
-    ];
+const CodeBattleLobby = ({ isDarkTheme, isLogin }) => {
+  const [isMount, setIsMount] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLogin) {
+      setIsMount(true);
+    } else {
+      showErrorAlert({
+        title: "برای ورود به لابی کد بتل وارد حساب کاربری شوید",
+        isDarkTheme: true
+      });
+      setTimeout(() => navigate(-1), 2000)
+    }
+  }, []);
+  const roomList = [
+    {
+      uniqId: "afhjewopnvljkdfhbgkjhfgpw",
+      title: "چالش الگوریتم‌ها",
+      state: "waiting",
+    },
+    {
+      uniqId: "afhjewopnvljkdfhbgkjhfgps",
+      title: "مسابقه ساختمان داده",
+      state: "run",
+    },
+    {
+      uniqId: "afhjewopnvljkdfhbgkjhfgpp",
+      title: "رقابت سریع",
+      state: "waiting",
+    },
+    {
+      uniqId: "afhjewopnvljkdfhbgkjhfgpa",
+      title: "مبارزه پایتون",
+      state: "waiting",
+    },
+  ];
   const [showDialogIndex, setShowDialogIndex] = useState(0);
-  return (
+  return isMount ? (
     <div
       className={`${
         isDarkTheme ? "text-white" : "text-black"
@@ -162,26 +178,48 @@ const CodeBattleLobby = ({ isDarkTheme }) => {
       </div>
       <section className="grid items-center gap-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full">
         {roomList.map((room, _i) => {
-            return <div key={_i} className="w-full h-[180px] p-5 rounded-xl transition-all duration-200 bg-[#1e293b7e] border border-slate-800 hover:shadow-[0px_0px_10px_5px] hover:shadow-[#22d3ee2e] flex flex-col items-start justify-between gap-y-5">
-                <div className="flex items-center w-full justify-between">
-                    <h1 className="text-xl font-bold">{room.title}</h1>
-                    <div className={`p-2 rounded-full text-sm -z-1 ${room.state === "waiting"? "opacity-[0.8] bg-slate-600 border border-slate-500": "bg-red-500 text-white"}`}>
-                        {room.state === "waiting"? "در حال انتظار": "در حال برگزاری"}
-                    </div>
+          return (
+            <div
+              key={_i}
+              className="w-full h-[180px] p-5 rounded-xl transition-all duration-200 bg-[#1e293b7e] border border-slate-800 hover:shadow-[0px_0px_10px_5px] hover:shadow-[#22d3ee2e] flex flex-col items-start justify-between gap-y-5"
+            >
+              <div className="flex items-center w-full justify-between">
+                <h1 className="text-xl font-bold">{room.title}</h1>
+                <div
+                  className={`p-2 rounded-full text-sm -z-1 ${
+                    room.state === "waiting"
+                      ? "opacity-[0.8] bg-slate-600 border border-slate-500"
+                      : "bg-red-500 text-white"
+                  }`}
+                >
+                  {room.state === "waiting"
+                    ? "در حال انتظار"
+                    : "در حال برگزاری"}
                 </div>
-                <div className="flex items-center w-full justify-between">
-                    <div className="text-md text-slate-400 font-[400] flex items-center gap-x-2">
-                        <div className="-mt-1"><Users size={18}/></div>
-                        
-                        {convertToFarsiNumbers(room.state === "waiting"? "1/2": "2/2")}
-                    </div>
-                    <button disabled={room.state === "run"} className="disabled:opacity-[0.5] disabled:cursor-not-allowed bg-[#4F4BE6] rounded-lg text-white p-3 text-sm">ورود به اتاق</button>
+              </div>
+              <div className="flex items-center w-full justify-between">
+                <div className="text-md text-slate-400 font-[400] flex items-center gap-x-2">
+                  <div className="-mt-1">
+                    <Users size={18} />
+                  </div>
+
+                  {convertToFarsiNumbers(
+                    room.state === "waiting" ? "1/2" : "2/2"
+                  )}
                 </div>
+                <button
+                  disabled={room.state === "run"}
+                  className="disabled:opacity-[0.5] disabled:cursor-not-allowed bg-[#4F4BE6] rounded-lg text-white p-3 text-sm"
+                >
+                  ورود به اتاق
+                </button>
+              </div>
             </div>
+          );
         })}
       </section>
     </div>
-  );
+  ) : null;
 };
 
 export default CodeBattleLobby;

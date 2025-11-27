@@ -65,19 +65,47 @@ export default function App() {
   }, [isDarkTheme]);
 
   const [drawerToggle, setDrawerToggle] = useState(false);
+  const refToken = localStorage.getItem("refToken");
 
   const bublesRef = useRef();
   const targetRef = useRef(null);
   const [users, setUsers] = useState([]);
+  const [isUserLoggin, setIsUserLoggin] = useState(false);
+  const [userLoginData, setUserLoginData] = useState({});
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(
-        "https://retoolapi.dev/tPNiZj/tecama-users"
-      );
-      setUsers(response.data); // Set the fetched data to the state
+      axios
+        .get("https://retoolapi.dev/tPNiZj/tecama-users")
+        .then((response, v) => {
+          const usersList = response.data; // Extract the list of users from the response
+          setUsers(usersList); // Set the users list in state
+          if (refToken) {
+            // Find the user with the matching token
+            const isLoggin = usersList.find(
+              (user) => user.token === refToken
+            );
+
+            if (isLoggin) {
+              // If the token is valid, set the user as logged in
+              setIsUserLoggin(true);
+              setUserLoginData({
+                fullName: `${isLoggin.fname} ${isLoggin.lname}`,
+                email: isLoggin.email,
+                password: isLoggin.password,
+              });
+            } else {
+              // If the token is invalid, remove it from localStorage and set the user as not logged in
+              setIsUserLoggin(false);
+              localStorage.removeItem("refToken");
+            }
+          } else {
+            // If no token is found in localStorage, set the user as not logged in
+            setIsUserLoggin(false);
+          }
+        });
     } catch (err) {
-      throw new Error(err.message); // Set error message if something goes wrong
+      console.log(err);
     }
   };
 
@@ -149,6 +177,7 @@ export default function App() {
           coursesData={coursesData}
           articlesData={articlesData}
           newsData={newsData}
+          isLogin={isUserLoggin}
         />
       </AnimatePresence>
 

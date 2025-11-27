@@ -83,6 +83,7 @@ export default function AppRoutes({
   newsData,
   users,
   API_KEY,
+  isLogin
 }) {
   const location = useLocation();
   const refToken = localStorage.getItem("refToken") || "notLoggined";
@@ -958,7 +959,7 @@ export default function AppRoutes({
               transition={{ delay: 0.5, duration: 0.5 }}
               className="w-[90%] mx-auto"
             >
-              <CodeBattleLanding isDarkTheme={isDarkTheme} />
+              <CodeBattleLanding isLogin={isLogin} isDarkTheme={isDarkTheme} />
             </motion.div>
           </Suspense>
         }
@@ -978,7 +979,7 @@ export default function AppRoutes({
               transition={{ delay: 0.5, duration: 0.5 }}
               className="w-[90%] mx-auto"
             >
-              <CodeBattleLobby isDarkTheme={isDarkTheme} />
+              <CodeBattleLobby isLogin={isLogin} isDarkTheme={isDarkTheme} />
             </motion.div>
           </Suspense>
         }
