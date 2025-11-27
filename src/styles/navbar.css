@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #0F172A;
-  z-index: 100;
+  z-index: 1000;
   border-bottom: 1px solid rgba(99, 97, 97, 0.442);
 }
 
