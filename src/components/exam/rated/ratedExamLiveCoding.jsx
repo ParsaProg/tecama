@@ -83,14 +83,16 @@ function RatedExamLiveCodingPage() {
     console.log(solution(5));`;
 
   return (
-    isUserLoggin && <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6 text-white">کد چالش</h1>
-      <CodeChallengeEditor
-        defaultLanguage="javascript"
-        defaultCode={defaultCode}
-        challenge={challenge}
-      />
-    </div>
+    isUserLoggin && (
+      <div className="container mx-auto p-4">
+        <h1 className="text-3xl font-bold mb-6 text-white">کد چالش</h1>
+        <CodeChallengeEditor
+          defaultLanguage="javascript"
+          defaultCode={defaultCode}
+          challenge={challenge}
+        />
+      </div>
+    )
   );
 }
 
