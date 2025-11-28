@@ -84,7 +84,8 @@ export default function AppRoutes({
   newsData,
   users,
   API_KEY,
-  isLogin
+  isLogin,
+  userData
 }) {
   const location = useLocation();
   const refToken = localStorage.getItem("refToken") || "notLoggined";
@@ -980,12 +981,12 @@ export default function AppRoutes({
               transition={{ delay: 0.5, duration: 0.5 }}
               className="w-[90%] mx-auto"
             >
-              <CodeBattleLobby isLogin={isLogin} isDarkTheme={isDarkTheme} />
+              <CodeBattleLobby userData={userData} isLogin={isLogin} isDarkTheme={isDarkTheme} />
             </motion.div>
           </Suspense>
         }
       /><Route
-        path="/code-battle/:id"
+        path="/code-battle/:roomId"
         element={
           <Suspense>
             <motion.div
@@ -999,7 +1000,7 @@ export default function AppRoutes({
               transition={{ delay: 0.5, duration: 0.5 }}
               className="w-[90%] mx-auto"
             >
-              <CodeBattleRoom isLogin={isLogin} isDarkTheme={isDarkTheme} />
+              <CodeBattleRoom userData={userData} isLogin={isLogin} isDarkTheme={isDarkTheme} />
             </motion.div>
           </Suspense>
         }
