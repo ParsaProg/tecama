@@ -208,6 +208,7 @@ const CodeBattleLobby = ({ isDarkTheme, isLogin }) => {
                   )}
                 </div>
                 <button
+                onClick={() => navigate(`/code-battle/${room.uniqId}`)}
                   disabled={room.state === "run"}
                   className="disabled:opacity-[0.5] disabled:cursor-not-allowed bg-[#4F4BE6] rounded-lg text-white p-3 text-sm"
                 >
