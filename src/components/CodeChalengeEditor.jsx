@@ -132,7 +132,7 @@ const Badge = ({ children, variant = "default", className = "" }) => {
 };
 
 function CodeChallengeEditor({
-  defaultLanguage = "javascript",
+  defaultLanguage,
   defaultCode = "",
   challenge,
 }) {
@@ -239,7 +239,7 @@ function CodeChallengeEditor({
 
   return (
     <div
-      className="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[calc(100vh-150px)]"
+      className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full h-[calc(100vh-150px)]"
       dir="ltr"
     >
       <Card className="col-span-1 lg:col-span-2 flex flex-col h-full">
@@ -284,18 +284,16 @@ function CodeChallengeEditor({
             onChange={setActiveTab}
             className="h-full flex flex-col"
           >
-            <div className="px-6">
               <div className="flex items-center gap-x-[20px] mb-3">
-                <div onClick={() => setActiveTab("editor")} className="rounded-lg p-2 bg-transparent border-[1px] border-gray-600 flex items-center cursor-pointer text-white">
+                <div onClick={() => setActiveTab("editor")} className={`${activeTab === "editor"? "bg-blue-600 border-blue-600": "bg-transparent border-gray-600"} rounded-lg p-2 transition-colors duration-200 border-[1px]  flex items-center cursor-pointer text-white`}>
                   <Code className="h-5 w-4 ml-1" />
                   ویرایشگر کد
                 </div>
-                <div onClick={() => setActiveTab("output")} className="rounded-lg p-2 bg-transparent border-[1px] border-gray-600 flex items-center cursor-pointer text-white">
+                <div onClick={() => setActiveTab("output")} className={`${activeTab === "output"? "bg-blue-600 border-blue-600": "bg-transparent border-gray-600"} rounded-lg p-2 transition-colors duration-200 border-[1px]  flex items-center cursor-pointer text-white`}>
                   <FileText className="h-4 w-4 ml-1" />
                   خروجی
                 </div>
               </div>
-            </div>
 
             {activeTab === "editor" ? (
               <div dir="ltr" className="h-full border rounded-md border-gray-700">
