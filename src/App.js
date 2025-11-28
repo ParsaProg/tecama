@@ -82,9 +82,7 @@ export default function App() {
           setUsers(usersList); // Set the users list in state
           if (refToken) {
             // Find the user with the matching token
-            const isLoggin = usersList.find(
-              (user) => user.token === refToken
-            );
+            const isLoggin = usersList.find((user) => user.token === refToken);
 
             if (isLoggin) {
               // If the token is valid, set the user as logged in
@@ -171,6 +169,7 @@ export default function App() {
       <AnimatePresence>
         <ScrollToTop />
         <AppRoutes
+          userData={userLoginData}
           users={users}
           API_KEY={API_KEY}
           isDarkTheme={isDarkTheme}
