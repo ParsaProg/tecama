@@ -1,12 +1,12 @@
 "use client";
-import { ArrowRight, Check, Clock } from "lucide-react";
+import { ArrowRight, Check, Clock, Send } from "lucide-react";
 import convertToFarsiNumbers from "../../../functions/convertNumbersToFarsi";
 import { motion } from "framer-motion";
 import { useNavigate, useParams } from "react-router-dom";
 import showErrorAlert from "../../../functions/showAlert";
 import { useEffect, useRef, useState } from "react";
 import CodeChallengeEditor from "../../CodeChalengeEditor";
-const WS_URL = typeof window !== "undefined" ? "ws://localhost:3001" : "";
+const WS_URL = typeof window !== "undefined" ? "wss://tecama-codebattle-websocket-backend-production.up.railway.app" : "";
 export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
   const { roomId } = useParams();
   const navigate = useNavigate();
@@ -15,7 +15,11 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
   const [users, setUsers] = useState([]);
   const [challenge, setChallenge] = useState(null);
   const [remainingTime, setRemainingTime] = useState(0);
+  const [started, setStarted] = useState(false);
   const timerRef = useRef(null);
+  const [messages, setMessages] = useState([]);
+  const [chatInput, setChatInput] = useState("");
+  const chatRef = useRef(null);
   const defaultCode = `function solution(input) {\n return input;\n}\nconsole.log(solution(5));`;
   useEffect(() => {
     if (!isLogin) {
@@ -57,9 +61,7 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
         case "joined_room":
           setUsers(msg.payload.users || [userData]);
           setChallenge(msg.payload.challenge);
-          if (msg.payload.users?.length === 2) {
-            setRemainingTime(300);
-          }
+          setStarted(msg.payload.started || false);
           break;
         case "user_joined":
           setUsers((prev) => {
@@ -67,18 +69,28 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
               (u, index, self) =>
                 index === self.findIndex((t) => t.email === u.email)
             );
-            if (newUsers.length === 2) {
-              setRemainingTime(300);
-            }
             return newUsers;
           });
+          break;
+        case "game_started":
+          setStarted(true);
+          setRemainingTime(msg.payload.time);
           break;
         case "user_left":
           setUsers(msg.payload.users || []);
           setRemainingTime(0);
           break;
-        case "start_timer":
-          setRemainingTime(msg.payload.time);
+        case "game_ended":
+          setRemainingTime(0);
+          if (msg.payload.reason === "opponent_left") {
+            showErrorAlert({ title: "حریف خارج شد، شما بردید!", isDarkTheme });
+          } else if (msg.payload.reason === "you_left") {
+            showErrorAlert({ title: "شما خارج شدید، باخت خوردید!", isDarkTheme });
+          }
+          setTimeout(() => navigate("/code-battle/lobby"), 3000);
+          break;
+        case "chat_message":
+          setMessages((prev) => [...prev, { sender: msg.payload.sender, text: msg.payload.message }]);
           break;
         case "join_error":
           showErrorAlert({ title: msg.payload.message, isDarkTheme });
@@ -108,8 +120,28 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
     );
     return () => clearInterval(timerRef.current);
   }, [remainingTime]);
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [messages]);
   const submitSolution = (code) => {
     send({ type: "submit_solution", payload: { roomId, user: userData, code } });
+  };
+  const handleLeave = () => {
+    if (started && users.length === 2) {
+      if (!window.confirm("اطمینان دارید که می‌خواهید خارج شوید؟ این کار باعث باخت شما می‌شود.")) {
+        return;
+      }
+    }
+    send({ type: "leave_room", payload: { roomId } });
+    navigate("/code-battle/lobby");
+  };
+  const handleSendChat = () => {
+    if (!chatInput.trim()) return;
+    setMessages((prev) => [...prev, { sender: userData.fullName, text: chatInput }]);
+    send({ type: "chat_message", payload: { roomId, message: chatInput } });
+    setChatInput("");
   };
   const formatTime = (sec) => {
     const m = Math.floor(sec / 60);
@@ -165,26 +197,61 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
         </div>
       </section>
       <motion.div
-        onClick={() => {
-          send({ type: "leave_room", payload: { roomId } });
-          navigate("/code-battle/lobby");
-        }}
+        onClick={handleLeave}
         whileTap={{ scale: 0.94 }}
         className="border border-slate-800 rounded-xl p-3 flex items-center gap-x-2 mt-5 cursor-pointer"
       >
         <ArrowRight size={20} /> بازگشت به لابی
       </motion.div>
-      <div className="mt-8 w-full">
-        {challenge ? (
-          <CodeChallengeEditor
-            defaultLanguage="javascript"
-            defaultCode={defaultCode}
-            challenge={challenge}
-            onSubmit={submitSolution}
-          />
-        ) : (
-          <h1 className="text-slate-400 text-lg">در حال دریافت چالش...</h1>
-        )}
+      <div className="mt-8 w-full flex flex-col md:flex-row gap-5">
+        <div className="flex-1">
+          {challenge ? (
+            <CodeChallengeEditor
+              defaultLanguage="javascript"
+              defaultCode={defaultCode}
+              challenge={challenge}
+              onSubmit={submitSolution}
+            />
+          ) : (
+            <h1 className="text-slate-400 text-lg">در حال دریافت چالش...</h1>
+          )}
+        </div>
+        {/* Enhanced Chat UI: Sleeker, like modern messengers */}
+        <div className="md:w-1/3 w-full h-[400px] flex flex-col bg-[#1e293b] border border-slate-700 rounded-xl p-4 shadow-md">
+          <h3 className="text-lg font-semibold mb-3 text-white">چت با حریف</h3>
+          <div ref={chatRef} className="flex-1 overflow-y-auto flex flex-col gap-y-3 px-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`flex flex-col max-w-[80%] p-3 rounded-2xl shadow-sm ${
+                  msg.sender === userData.fullName
+                    ? "self-start bg-[#4F4BE6] text-white rounded-br-none"
+                    : "self-end bg-slate-700 text-white rounded-bl-none"
+                }`}
+              >
+                <span className="text-xs font-medium opacity-80 mb-1">{msg.sender}</span>
+                <span className="text-sm">{msg.text}</span>
+              </div>
+            ))}
+          </div>
+          <div className="flex items-center mt-3 bg-slate-800 rounded-full p-2">
+            <input
+              type="text"
+              value={chatInput}
+              onChange={(e) => setChatInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSendChat()}
+              className="flex-1 bg-transparent text-white placeholder-slate-400 focus:outline-none px-3 text-sm"
+              placeholder="پیام خود را بنویسید..."
+            />
+            <motion.button
+              onClick={handleSendChat}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 bg-[#4F4BE6] rounded-full text-white ml-2"
+            >
+              <Send size={16} />
+            </motion.button>
+          </div>
+        </div>
       </div>
     </div>
   );

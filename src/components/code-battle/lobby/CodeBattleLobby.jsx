@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import convertToFarsiNumbers from "../../../functions/convertNumbersToFarsi";
 import showErrorAlert from "../../../functions/showAlert";
 import { useNavigate } from "react-router-dom";
-const WS_URL = typeof window !== "undefined" ? "ws://localhost:3001" : "";
+const WS_URL = typeof window !== "undefined" ? "wss://tecama-codebattle-websocket-backend-production.up.railway.app" : "";
 const CodeBattleLobby = ({ isDarkTheme, isLogin, userData }) => {
   const [isMount, setIsMount] = useState(false);
   const navigate = useNavigate();
