@@ -156,9 +156,9 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
     <div
       className={`${isDarkTheme ? "text-white" : "text-black"} w-full mt-[50px] flex flex-col items-start`}
     >
-      <section className="flex w-full items-center justify-between py-3">
+      <section className="max-[800px]:flex-col gap-y-5 flex w-full items-center justify-between py-3">
         {/* YOU */}
-        <div className="w-full flex gap-x-2 items-center p-5 bg-[#504be635] border border-[#504be643] rounded-xl">
+        <div className="w-full flex justify-center gap-x-2 items-center p-5 bg-[#504be635] border border-[#504be643] rounded-xl">
           <div className="flex justify-center items-center w-12 h-12 text-md bg-[#4F4BE6] rounded-full font-bold p-3">
             {userData.fullName[0]}
           </div>
@@ -172,7 +172,7 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
           </div>
         </div>
         {/* TIMER */}
-        <div className="w-[50%] flex flex-col items-center gap-y-2">
+        <div className="max-[1000px]:w-[90%] w-[50%] flex flex-col items-center gap-y-2">
           <h1 className="font-bold text-3xl flex items-center gap-x-2">
             {formatTime(remainingTime)} <Clock size={20} />
           </h1>
@@ -181,7 +181,7 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
           </div>
         </div>
         {/* OPPONENT */}
-        <div className="w-full flex gap-x-2 items-center p-5 border border-[#504be643] rounded-xl">
+        <div className="w-full flex gap-x-2 items-center justify-center p-5 border border-[#504be643] rounded-xl">
           {opponent ? (
             <>
               <div className="flex justify-center items-center w-12 h-12 text-md bg-[#4F4BE6] rounded-full font-bold p-3">
@@ -217,7 +217,7 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
           )}
         </div>
         {/* Enhanced Chat UI: Sleeker, like modern messengers */}
-        <div className="md:w-1/3 w-full h-[400px] flex flex-col bg-[#1e293b] border border-slate-700 rounded-xl p-4 shadow-md">
+        <div className="mt-10 md:w-1/3 w-full h-[400px] flex flex-col bg-[#1e293b] border border-slate-700 rounded-xl p-4 shadow-md">
           <h3 className="text-lg font-semibold mb-3 text-white">چت با حریف</h3>
           <div ref={chatRef} className="flex-1 overflow-y-auto flex flex-col gap-y-3 px-2 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
             {messages.map((msg, idx) => (
@@ -235,21 +235,21 @@ export default function CodeBattleRoom({ isDarkTheme, isLogin, userData }) {
             ))}
           </div>
           <div className="flex items-center mt-3 bg-slate-800 rounded-full p-2">
-            <input
+            <div className="flex items-center gap-x-2 border-dashed border-[1.8px] w-full p-3  border-slate-400 rounded-xl "><input
               type="text"
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSendChat()}
-              className="flex-1 bg-transparent text-white placeholder-slate-400 focus:outline-none px-3 text-sm"
+              className="w-full flex-1 bg-transparent text-white placeholder-slate-400 focus:outline-none px-3 text-sm"
               placeholder="پیام خود را بنویسید..."
             />
             <motion.button
               onClick={handleSendChat}
               whileTap={{ scale: 0.95 }}
-              className="p-2 bg-[#4F4BE6] rounded-full text-white ml-2"
+              className="p-2 bg-[#4F4BE6] rounded-full text-white"
             >
               <Send size={16} />
-            </motion.button>
+            </motion.button></div>
           </div>
         </div>
       </div>
