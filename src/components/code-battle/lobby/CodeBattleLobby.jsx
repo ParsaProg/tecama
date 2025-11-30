@@ -111,18 +111,18 @@ const CodeBattleLobby = ({ isDarkTheme, isLogin, userData }) => {
             به یک اتاق بپیوند یا اتاق خودت رو بساز
           </h3>
         </div>
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center gap-x-3 w-full">
           <motion.button
             onClick={handleCreateRoom}
             whileTap={{ scale: 0.93 }}
-            className="sm:w-auto w-full cursor-pointer py-3 px-5 rounded-xl text-white bg-[#4F4BE6] flex items-center gap-x-2"
+            className="sm:w-auto w-full cursor-pointer justify-center py-3 px-5 rounded-xl text-white bg-[#4F4BE6] flex items-center gap-x-2"
           >
             <Plus size={18} /> ساخت اتاق
           </motion.button>
           <motion.button
             onClick={handleQuickPlay}
             whileTap={{ scale: 0.93 }}
-            className="flex items-center justify-center text-[#22D2EE] p-3 rounded-xl border border-[#22D2EE] gap-x-2"
+            className="w-full flex items-center justify-center text-[#22D2EE] p-3 rounded-xl border border-[#22D2EE] gap-x-2"
           >
             <Zap size={18} /> بازی سریع
           </motion.button>
